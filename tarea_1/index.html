@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginita</title>
+</head>
+<body>
+    <form action="form.php" method="post" autocomplete="off">
+        <label for="username">Pon tu nombre aquí:</label><br>
+        <input type="text" name="username" id="username" placeholder="Tu nombre"><br><br>
+        <input type="submit" value="Registrar nombre"><br><br>
+    </form>
+    <div id="registered-names">
+
+    </div>
+</body>
+<script>
+    const REGISTERED_NAMES = document.querySelector("#registered-names");
+
+    fetch('users.php')
+    .then(response => response.text().then(raw => {
+        REGISTERED_NAMES.innerHTML = raw;
+    })
+    ).catch(e => console.error("There was an error"));
+</script>
+</html>
