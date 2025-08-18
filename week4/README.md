@@ -1,4 +1,4 @@
-# Week 3 - MVC Introduction
+# Week 4 - MVC Introduction
 #### Activity 1: Take a look of the previous routes. Do you have any comment?
 
 The "about" behavior is set inside the routing file within a callback function, instead of having a separate method inside the corresponding controller class for this view (which, apparently, is the recommended pattern).
