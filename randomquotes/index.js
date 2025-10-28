@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
+const os = require("os");
 const port = 80;
-
 
 const phrases = [
   "Get ready to be inspired…", 
@@ -13,10 +13,12 @@ const phrases = [
   "Alone or not you gonna walk forward.",
 ]
 
-
 app.get('/', (req, res) => {
   const number = Math.floor(Math.random() * phrases.length);
-  res.send(phrases[number]);
+  const phrase = phrases[number];
+  const containerId = os.hostname();
+
+  res.send(`${phrase} - Container ID: ${containerId}`);
 })
 
 app.listen(port, () => {
